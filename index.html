@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabWork3</title>
+</head>
+<body>
+    <script>
+        //For the num of iterations
+        let numOfCourses= prompt("How many course did you finish?","0")
+        //If its empty or a string or null the program will stop
+        if(isNaN(numOfCourses)){
+            document.write("<h2>Invalid input</h2>")
+        }else{
+        //If the name is valid, the program continue
+        //Convert the entry to a number    
+        numOfCourses=parseInt(numOfCourses)
+        //Create array to store the grades
+        let courseMarks=[]
+        //To ask n times a grade and push it in the grades array
+        for(var i=0;i<numOfCourses;i++){
+            courseMarks[i]=parseFloat(prompt(`Enter your mark for course ${courseMarks.length + 1}`, "0"))
+        }
+        courseMarks.forEach((mark) => {document.write(`<p>${mark}</p>`)})
+        //Calcule the sum of all the grades
+        let sum=courseMarks.reduce((a,b)=>a+b,0)
+        //Calculate the average
+        let average=sum/courseMarks.length
+       
+        //Put some grade for the student 
+        if(average >= 90 && average <= 100) {
+          document.write(`<p>Your final average is ${average}. Your grade is A+</p>`)
+        } else if(average >= 80) {
+          document.write(`<p>Your final average is ${average}. Your grade is B</p>`)
+        } else if(average >= 70) {
+          document.write(`<p>Your final average is ${average}. Your grade is C</p>`)
+        } else if(average >= 60) {
+          document.write(`<p>Your final average is ${average}. Your grade is D</p>`)
+        } else if(average >= 0) {
+          document.write(`<p>Your final average is ${average}. Your grade is F</p>`)
+        } else {
+          document.write('Sorry, All the marks have to be from minimum 0 to maximum 100!')
+        }
+
+      
+    }      
+    </script> 
+</body>
+</html>
+
+
+
